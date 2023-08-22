@@ -39,7 +39,7 @@ class _RandomImage extends State<RandomImage> {
           padding: const EdgeInsets.all(16.0),
           child: Container(
             height: 250,
-            child: ClipRRect(
+            child:randomImage==""?Container(): ClipRRect(
               child: Image.network(randomImage, fit: BoxFit.fill),
             ),
           ),

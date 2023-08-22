@@ -23,62 +23,12 @@ class MainActivity : FlutterActivity() {
     var blueToothStatus=""
 
 
-//    private val mReceiver: BroadcastReceiver = object : BroadcastReceiver() {
-//        override fun onReceive(context: Context, intent: Intent) {
-//            val action = intent.action
-//            if (action == BluetoothAdapter.ACTION_STATE_CHANGED) {
-//                val state = intent.getIntExtra(
-//                    BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR
-//                )
-//                when (state) {
-//                    BluetoothAdapter.STATE_OFF -> {
-//                        blueToothStatus= "Bluetooth is OFF"
-//
-//
-//                    }
-//
-//                    BluetoothAdapter.STATE_TURNING_OFF -> {
-//                        blueToothStatus= "Bluetooth is OFF"
-//
-//                    }
-//
-//                    BluetoothAdapter.STATE_ON -> {
-//                        blueToothStatus= "Bluetooth is ONN"
-//
-//                    }
-//
-//                    BluetoothAdapter.STATE_TURNING_ON -> {
-//                        blueToothStatus= "Bluetooth is ONN"
-//
-//                    }
-//
-//
-//                }
-//
-//                flutterEngine?.dartExecutor?.let {
-//                    MethodChannel(it.binaryMessenger, "channel").setMethodCallHandler {
-//                        // This method is invoked on the main thread.
-//                            call, result ->
-//                        if (call.method == "getBluetoothStatus") {
-//                            result.success(blueToothStatus)
-//
-//                        } else {
-//                            result.notImplemented()
-//                        }
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
+
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         NativeMethodChannel.configureChannel(flutterEngine)
 
-        // Register for broadcasts on BluetoothAdapter state change
-//        val filter = IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED)
-//        registerReceiver(mReceiver, filter)
 
 
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "channel").setMethodCallHandler {
